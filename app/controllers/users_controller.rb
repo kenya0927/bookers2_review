@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   def index
+    @users = User.all
+    @book = Book.new
   end
 
   def show
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
 
   def update
      @user = User.find(params[:id])
-     @user.update
+     @user.update(user_params)
      redirect_to user_path(@user.id)
   end
 
